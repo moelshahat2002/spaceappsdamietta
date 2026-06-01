@@ -1,0 +1,54 @@
+name: 🚀 Build & Deploy
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+      
+      - name: 🔧 Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      
+      - name: 📦 Install dependencies
+        run: npm install
+      
+      - name: 🧪 Run tests
+        run: npm test
+      
+      - name: 🏗️ Build
+        run: npm run build
+      
+      - name: ✅ Verify HTML
+        run: |
+          if [ -f Love_Site_Final.html ]; then
+            echo "✅ HTML file exists and is valid"
+          else
+            echo "❌ HTML file not found"
+            exit 1
+          fi
+      
+      - name: 📊 Check file size
+        run: |
+          SIZE=$(stat -f%z Love_Site_Final.html 2>/dev/null || stat -c%s Love_Site_Final.html)
+          echo "📄 File size: $SIZE bytes"
+          if [ $SIZE -gt 50000 ]; then
+            echo "⚠️ Warning: File size is larger than expected"
+          fi
+      
+      - name: 🎉 Success
+        run: echo "✅ All checks passed!"

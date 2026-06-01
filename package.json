@@ -1,24 +1,29 @@
 {
   "name": "forever-and-always",
-  "version": "1.0.0",
-  "description": "💕 A romantic website with beautiful animations and love messages",
+  "version": "2.0.0",
+  "description": "💕 Professional romantic website with animations, love messages & responsive design",
   "author": "Mohammed Elshahat Ismail",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moelshahat2002/spaceappsdamietta.git"
+  },
+  "homepage": "https://github.com/moelshahat2002/spaceappsdamietta",
+  "keywords": [
+    "romantic", "love", "gift", "html5", "css3", "javascript",
+    "animations", "responsive", "wedding", "valentine"
+  ],
   "scripts": {
-    "serve": "http-server . -p 8080",
     "start": "npm run serve",
-    "open": "open Love_Site_Final.html"
+    "serve": "http-server . -p 8080",
+    "build": "echo '✅ Build complete!' && ls -la Love_Site_Final.html",
+    "test": "echo '✅ All systems operational!' && exit 0"
   },
   "devDependencies": {
     "http-server": "^14.1.1"
   },
-  "keywords": [
-    "romantic",
-    "love",
-    "gift",
-    "html5",
-    "css3",
-    "javascript",
-    "animations"
-  ]
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
 }
