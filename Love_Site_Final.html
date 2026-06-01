@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forever & Always ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:'Cairo',sans-serif;
+background:linear-gradient(-45deg,#0f0c29,#302b63,#24243e,#4a0d26);
+background-size:400% 400%;
+animation:bgMove 15s ease infinite;
+color:#fff;
+overflow:hidden;
+height:100vh;
+}
+@keyframes bgMove{
+0%,100%{background-position:0% 50%}
+50%{background-position:100% 50%}
+}
+#intro,#main{
+position:absolute;
+inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+#main{display:none}
+.big-heart{font-size:110px;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{transform:scale(1.2)}}
+.type{
+font-size:48px;
+font-weight:900;
+white-space:nowrap;
+overflow:hidden;
+width:0;
+border-left:3px solid #fff;
+animation:typing 4s steps(20,end) forwards;
+}
+@keyframes typing{to{width:100%}}
+.start-btn,.nav{
+border:none;
+cursor:pointer;
+border-radius:40px;
+background:#ff4d6d;
+color:#fff;
+padding:14px 28px;
+font-size:18px;
+box-shadow:0 0 20px rgba(255,77,109,.6);
+transition:all 0.3s ease;
+}
+.start-btn{margin-top:25px;font-size:22px}
+.start-btn:hover,.nav:hover{
+background:#ff2452;
+transform:scale(1.05);
+box-shadow:0 0 30px rgba(255,77,109,1);
+}
+.start-btn:active,.nav:active{
+transform:scale(0.98);
+}
+.card{
+width:min(900px,92%);
+background:rgba(255,255,255,.10);
+backdrop-filter:blur(15px);
+border-radius:25px;
+padding:30px;
+box-shadow:0 0 30px rgba(255,77,109,.35);
+animation:fade .4s ease;
+display:flex;
+flex-direction:column;
+max-height:85vh;
+}
+@keyframes fade{
+from{opacity:0;transform:translateX(40px)}
+to{opacity:1;transform:translateX(0)}
+}
+.counter{text-align:center;color:#ffd6e0;margin-bottom:10px;font-weight:bold}
+h2{text-align:center;color:#ffd6e0;margin-bottom:15px;font-size:1.6rem}
+p{font-size:18px;line-height:1.8;text-align:center;overflow-y:auto;flex:1;padding:0 10px;word-wrap:break-word}
+p::-webkit-scrollbar{width:6px}
+p::-webkit-scrollbar-track{background:rgba(255,77,109,.1);border-radius:10px}
+p::-webkit-scrollbar-thumb{background:#ff4d6d;border-radius:10px}
+.controls{
+display:flex;
+justify-content:space-between;
+margin-top:20px;
+gap:10px;
+flex-shrink:0;
+}
+.controls .nav{flex:1}
+.signature{
+margin-top:20px;
+padding:15px;
+border-radius:15px;
+background:rgba(255,77,109,.15);
+text-align:center;
+border:2px solid #ff4d6d;
+animation:slideIn 0.5s ease;
+}
+@keyframes slideIn{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
+}
+.signature strong{display:block;margin:5px 0;color:#ffd6e0}
+.star,.heart{
+position:fixed;
+pointer-events:none;
+}
+.star{
+width:3px;height:3px;background:#fff;border-radius:50%;
+animation:twinkle 2s infinite;
+}
+@keyframes twinkle{50%{opacity:.2}}
+.heart{
+font-size:22px;
+animation:up 8s linear forwards;
+}
+@keyframes up{
+from{transform:translateY(100vh) rotate(0deg)}
+to{transform:translateY(-120vh) rotate(360deg)}
+}
+@media(max-width:600px){
+.start-btn{font-size:18px;padding:12px 24px}
+.type{font-size:36px}
+.big-heart{font-size:80px}
+.card{padding:20px;width:95%}
+h2{font-size:1.2rem}
+p{font-size:16px}
+.controls{flex-direction:column}
+.counter{font-size:14px}
+}
+</style>
+</head>
+<body>
+
+<div id="intro">
+<div class="big-heart">❤️</div>
+<h1 class="type">I LOVE YOU</h1>
+<button class="start-btn" onclick="openLove()">اضغطي هنا يا أجمل هدية في حياتي ❤️</button>
+</div>
+
+<div id="main">
+<div class="card">
+<div class="counter" id="counter"></div>
+<h2 id="title"></h2>
+<p id="text"></p>
+<div id="extra"></div>
+
+<div class="controls">
+<button class="nav" onclick="prevCard()">⬅ السابق</button>
+<button class="nav" onclick="nextCard()">التالي ➡</button>
+</div>
+</div>
+</div>
+
+<script>
+// إنشاء النجوم في الخلفية
+for(let i=0;i<120;i++){
+ let s=document.createElement('div');
+ s.className='star';
+ s.style.left=Math.random()*100+'vw';
+ s.style.top=Math.random()*100+'vh';
+ s.style.animationDelay=Math.random()*2+'s';
+ document.body.appendChild(s);
+}
+
+// بيانات الكروت
+const cards=[
+["💖 البداية","أحيانًا أقف طويلًا أفكر... كيف استطاع شخص واحد أن يجعل الحياة أجمل بهذا الشكل؟ وكيف استطاعت ابتسامة واحدة أن تمنح الأيام نورًا مختلفًا وتجعل أبسط اللحظات تحمل قيمة لا توصف؟ منذ أن عرفتك وأنا أشعر أن هناك شيئًا جميلًا تغير بداخلي، وكأن الحياة قررت أن تهديني شخصًا يحمل كل المعاني الجميلة في قلب واحد."],
+["✨ ابتسامتك","لا أظن أن هناك شيئًا أجمل من ابتسامتك. تلك الابتسامة التي تستطيع أن تغيّر مزاج يوم كامل في لحظة واحدة، وتجعل كل شيء يبدو أكثر إشراقًا. أحيانًا أتذكرها دون سبب فأبتسم تلقائيًا وكأنها تحمل معها سعادة لا تنتهي."],
+["🌹 منذ أن عرفتك","منذ أن عرفتك وأنا أرى الأشياء بشكل مختلف. أصبحت التفاصيل الصغيرة أجمل، واللحظات العادية أكثر قيمة. وكأن وجودك أضاف لونًا جديدًا لحياتي لم أكن أعرفه من قبل."],
+["❤️ معنى وجودك","أنتِ لستِ مجرد شخص أحببته، أنتِ راحتي عندما أتعب وأماني عندما أقلق وسعادتي عندما تضيق الدنيا. وجودك يمنحني شعورًا بالأمان والطمأنينة لا أستطيع وصفه بالكلمات."],
+["🥰 ما أحبه فيكِ","أحب قلبك قبل أي شيء، وأحب روحك الجميلة، وأحب عفويتك وضحكتك وحديثك. أحب كل تلك التفاصيل الصغيرة التي قد لا يلاحظها أحد لكنها بالنسبة لي تعني الكثير جدًا."],
+["🌸 الأيام الأجمل","أحب الطريقة التي تجعلين بها الأيام العادية تبدو مميزة. وكيف يصبح أي مكان أجمل لمجرد أنكِ فيه. هناك أشخاص يتركون أثرًا في المكان، وأنتِ من هؤلاء الأشخاص."],
+["🙏 الامتنان","أنا ممتن لكِ أكثر مما تتخيلين. ممتن لكل لحظة جميلة عشتها بسببك، ولكل ابتسامة كنتِ سببًا فيها، ولكل ذكرى تحمل اسمك."],
+["💫 أمنياتي","أتمنى أن تبقى ابتسامتك تضيء أيامك دائمًا، وأن تبقى السعادة رفيقة قلبك. أتمنى أن تحققي كل ما تتمنينه وأن تجدي كل الخير والراحة التي تستحقينها."],
+["💍 الحقيقة التي لا تتغير","ربما تعجز الكلمات عن شرح كل ما أشعر به، لكن هناك حقيقة واحدة لن تتغير أبدًا: أنتِ من أجمل الأشياء التي حدثت في حياتي. ولو كان للحب معنى فسيحمل شيئًا منكِ."],
+["🌹 الرسالة الأخيرة","مهما مرت الأيام ومهما تغيرت الظروف سيبقى لكِ في قلبي مكان لا يشبهه أي مكان. ولو كانت لي ألف فرصة للاختيار من جديد لاخترتكِ أنتِ في كل مرة. لا مرة واحدة ولا مئة مرة بل في كل مرة بلا استثناء. ❤️<br><br>Forever & Always ❤️"]
+];
+
+let current=0;
+
+function render(){
+document.getElementById('counter').innerHTML=(current+1)+' / '+cards.length;
+document.getElementById('title').innerHTML=cards[current][0];
+document.getElementById('text').innerHTML=cards[current][1];
+
+if(current===cards.length-1){
+document.getElementById('extra').innerHTML=`
+<div class="signature">
+<strong>💕 From:- Mohammed Elshahat Ismail ❤️</strong>
+<strong>💕 To:- Tabark El-Dosoky 🌹</strong>
+</div>`;
+}else{
+document.getElementById('extra').innerHTML='';
+}
+}
+
+function nextCard(){
+if(current<cards.length-1){
+current++;
+render();
+}
+}
+
+function prevCard(){
+if(current>0){
+current--;
+render();
+}
+}
+
+function openLove(){
+document.getElementById('intro').style.display='none';
+document.getElementById('main').style.display='flex';
+
+// تفجير القلوب بشكل مستمر
+let heartInterval=setInterval(()=>{
+let h=document.createElement('div');
+h.className='heart';
+h.innerHTML='❤️';
+h.style.left=Math.random()*100+'vw';
+h.style.animationDelay='0s';
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),8500);
+},250);
+
+// إيقاف القلوب بعد دقيقة
+setTimeout(()=>clearInterval(heartInterval),60000);
+}
+
+// التحكم بلوحة المفاتيح
+document.addEventListener('keydown',(e)=>{
+if(document.getElementById('intro').style.display!=='none')return;
+if(e.key==='ArrowRight')prevCard();
+if(e.key==='ArrowLeft')nextCard();
+});
+
+// التحكم باللمس
+let touchStartX=0;
+document.addEventListener('touchstart',(e)=>{
+touchStartX=e.changedTouches[0].screenX;
+},false);
+
+document.addEventListener('touchend',(e)=>{
+if(document.getElementById('intro').style.display!=='none')return;
+let touchEndX=e.changedTouches[0].screenX;
+if(touchStartX-touchEndX>50)nextCard();
+if(touchEndX-touchStartX>50)prevCard();
+},false);
+
+// تحميل أول كارت
+render();
+</script>
+</body>
+</html>

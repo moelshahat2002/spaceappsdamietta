@@ -1,0 +1,24 @@
+{
+  "name": "forever-and-always",
+  "version": "1.0.0",
+  "description": "💕 A romantic website with beautiful animations and love messages",
+  "author": "Mohammed Elshahat Ismail",
+  "license": "MIT",
+  "scripts": {
+    "serve": "http-server . -p 8080",
+    "start": "npm run serve",
+    "open": "open Love_Site_Final.html"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "keywords": [
+    "romantic",
+    "love",
+    "gift",
+    "html5",
+    "css3",
+    "javascript",
+    "animations"
+  ]
+}
