@@ -5,18 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Open Love Site",
+            "name": "🌐 Open Love Site (File Protocol)",
             "request": "launch",
             "type": "chrome",
             "file": "${workspaceFolder}/Love_Site_Final.html",
-            "webRoot": "${workspaceFolder}"
-        },
-        {
-            "name": "Launch with Server (port 8080)",
-            "request": "launch",
-            "type": "chrome",
-            "url": "http://localhost:8080/Love_Site_Final.html",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}",
+            "preLaunchTask": "copyToOutput"
         }
-    ]
+    ],
+    "comment": "NOTE: For Codespace environment, use 'npm start' to run a local server and open the URL in a new browser tab manually"
 }
