@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+<!-- ==================== Meta Tags & SEO ==================== -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="💕 موقع رومانسي احترافي بـ 10 رسائل حب جميلة مع تأثيرات سينمائية وقلوب طائرة. هدية رومانسية فخمة جداً!">
+<meta name="keywords" content="رومانسي, حب, هدية, جميل, تأثيرات, إنجليزي">
+<meta name="author" content="Mohammed Elshahat Ismail">
+<meta name="theme-color" content="#0f0c29">
+
+<!-- ==================== Open Graph Tags ==================== -->
+<meta property="og:title" content="Forever & Always ❤️">
+<meta property="og:description" content="💕 موقع رومانسي احترافي بـ 10 رسائل حب جميلة">
+<meta property="og:type" content="website">
+<meta property="og:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><text x='50' y='100' font-size='100' text-anchor='middle'>❤️</text></svg>">
+
+<!-- ==================== Title & Favicon ==================== -->
 <title>Forever & Always ❤️</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text x='0' y='75' font-size='75'>❤️</text></svg>">
+
+<!-- ==================== Google Fonts ==================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
+/* ==================== RESET & BASE STYLES ==================== */
 *{margin:0;padding:0;box-sizing:border-box}
+
+/* ==================== BODY & BACKGROUND ==================== */
 body{
 font-family:'Cairo',sans-serif;
 background:linear-gradient(-45deg,#0f0c29,#302b63,#24243e,#4a0d26);
@@ -15,11 +36,16 @@ animation:bgMove 15s ease infinite;
 color:#fff;
 overflow:hidden;
 height:100vh;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
 }
+
 @keyframes bgMove{
 0%,100%{background-position:0% 50%}
 50%{background-position:100% 50%}
 }
+
+/* ==================== INTRO & MAIN SCREENS ==================== */
 #intro,#main{
 position:absolute;
 inset:0;
@@ -28,9 +54,18 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 }
+
 #main{display:none}
-.big-heart{font-size:110px;animation:pulse 1.5s infinite}
+
+/* ==================== INTRO SCREEN ELEMENTS ==================== */
+.big-heart{
+font-size:110px;
+animation:pulse 1.5s infinite;
+filter:drop-shadow(0 0 10px rgba(255,77,109,.5))
+}
+
 @keyframes pulse{50%{transform:scale(1.2)}}
+
 .type{
 font-size:48px;
 font-weight:900;
@@ -39,8 +74,12 @@ overflow:hidden;
 width:0;
 border-left:3px solid #fff;
 animation:typing 4s steps(20,end) forwards;
+text-shadow:0 0 20px rgba(255,255,255,.3)
 }
+
 @keyframes typing{to{width:100%}}
+
+/* ==================== BUTTONS ==================== */
 .start-btn,.nav{
 border:none;
 cursor:pointer;
@@ -51,16 +90,27 @@ padding:14px 28px;
 font-size:18px;
 box-shadow:0 0 20px rgba(255,77,109,.6);
 transition:all 0.3s ease;
+font-weight:bold;
 }
+
 .start-btn{margin-top:25px;font-size:22px}
+
 .start-btn:hover,.nav:hover{
 background:#ff2452;
 transform:scale(1.05);
-box-shadow:0 0 30px rgba(255,77,109,1);
+box-shadow:0 0 30px rgba(255,77,109,1)
 }
+
 .start-btn:active,.nav:active{
-transform:scale(0.98);
+transform:scale(0.98)
 }
+
+.start-btn:focus,.nav:focus{
+outline:2px solid #fff;
+outline-offset:2px
+}
+
+/* ==================== CARD STYLES ==================== */
 .card{
 width:min(900px,92%);
 background:rgba(255,255,255,.10);
@@ -73,24 +123,55 @@ display:flex;
 flex-direction:column;
 max-height:85vh;
 }
+
 @keyframes fade{
 from{opacity:0;transform:translateX(40px)}
 to{opacity:1;transform:translateX(0)}
 }
-.counter{text-align:center;color:#ffd6e0;margin-bottom:10px;font-weight:bold}
-h2{text-align:center;color:#ffd6e0;margin-bottom:15px;font-size:1.6rem}
-p{font-size:18px;line-height:1.8;text-align:center;overflow-y:auto;flex:1;padding:0 10px;word-wrap:break-word}
+
+/* ==================== CARD CONTENT ==================== */
+.counter{
+text-align:center;
+color:#ffd6e0;
+margin-bottom:10px;
+font-weight:bold;
+font-size:14px
+}
+
+h2{
+text-align:center;
+color:#ffd6e0;
+margin-bottom:15px;
+font-size:1.6rem;
+text-shadow:0 0 10px rgba(255,107,157,.3)
+}
+
+p{
+font-size:18px;
+line-height:1.8;
+text-align:center;
+overflow-y:auto;
+flex:1;
+padding:0 10px;
+word-wrap:break-word
+}
+
 p::-webkit-scrollbar{width:6px}
 p::-webkit-scrollbar-track{background:rgba(255,77,109,.1);border-radius:10px}
 p::-webkit-scrollbar-thumb{background:#ff4d6d;border-radius:10px}
+
+/* ==================== CONTROLS ==================== */
 .controls{
 display:flex;
 justify-content:space-between;
 margin-top:20px;
 gap:10px;
-flex-shrink:0;
+flex-shrink:0
 }
+
 .controls .nav{flex:1}
+
+/* ==================== SIGNATURE ==================== */
 .signature{
 margin-top:20px;
 padding:15px;
@@ -99,29 +180,50 @@ background:rgba(255,77,109,.15);
 text-align:center;
 border:2px solid #ff4d6d;
 animation:slideIn 0.5s ease;
+box-shadow:0 0 20px rgba(255,77,109,.2)
 }
+
 @keyframes slideIn{
 from{opacity:0;transform:translateY(20px)}
 to{opacity:1;transform:translateY(0)}
 }
-.signature strong{display:block;margin:5px 0;color:#ffd6e0}
+
+.signature strong{
+display:block;
+margin:5px 0;
+color:#ffd6e0;
+font-size:16px
+}
+
+/* ==================== STARS & HEARTS ==================== */
 .star,.heart{
 position:fixed;
 pointer-events:none;
+z-index:1
 }
+
 .star{
-width:3px;height:3px;background:#fff;border-radius:50%;
-animation:twinkle 2s infinite;
+width:3px;
+height:3px;
+background:#fff;
+border-radius:50%;
+animation:twinkle 2s infinite
 }
+
 @keyframes twinkle{50%{opacity:.2}}
+
 .heart{
 font-size:22px;
 animation:up 8s linear forwards;
+z-index:50
 }
+
 @keyframes up{
 from{transform:translateY(100vh) rotate(0deg)}
 to{transform:translateY(-120vh) rotate(360deg)}
 }
+
+/* ==================== RESPONSIVE DESIGN ==================== */
 @media(max-width:600px){
 .start-btn{font-size:18px;padding:12px 24px}
 .type{font-size:36px}
@@ -132,42 +234,60 @@ p{font-size:16px}
 .controls{flex-direction:column}
 .counter{font-size:14px}
 }
-</style>
+
+@media(max-width:400px){
+.type{font-size:28px}
+.big-heart{font-size:60px}
+.start-btn{font-size:16px;padding:10px 20px}
+}</style>
 </head>
 <body>
-
-<div id="intro">
-<div class="big-heart">❤️</div>
-<h1 class="type">I LOVE YOU</h1>
-<button class="start-btn" onclick="openLove()">اضغطي هنا يا أجمل هدية في حياتي ❤️</button>
+<!-- ==================== INTRO SCREEN ==================== -->
+<div id="intro" role="main" aria-label="شاشة الترحيب">
+<div class="big-heart" aria-hidden="true">❤️</div>
+<h1 class="type" aria-label="رسالة I LOVE YOU">I LOVE YOU</h1>
+<button class="start-btn" onclick="openLove()" aria-label="ادخلي إلى الموقع الرومانسي">اضغطي هنا يا أجمل هدية في حياتي ❤️</button>
 </div>
 
-<div id="main">
+<!-- ==================== MAIN SCREEN - CARDS ==================== -->
+<div id="main" role="region" aria-label="عرض الرسائل الرومانسية">
 <div class="card">
-<div class="counter" id="counter"></div>
-<h2 id="title"></h2>
-<p id="text"></p>
+<div class="counter" id="counter" aria-live="polite" aria-label="عداد الكروت"></div>
+<h2 id="title" aria-live="assertive"></h2>
+<p id="text" aria-live="polite"></p>
 <div id="extra"></div>
 
 <div class="controls">
-<button class="nav" onclick="prevCard()">⬅ السابق</button>
-<button class="nav" onclick="nextCard()">التالي ➡</button>
+<button class="nav" onclick="prevCard()" aria-label="عرض الرسالة السابقة">⬅ السابق</button>
+<button class="nav" onclick="nextCard()" aria-label="عرض الرسالة التالية">التالي ➡</button>
 </div>
 </div>
 </div>
 
 <script>
-// إنشاء النجوم في الخلفية
-for(let i=0;i<120;i++){
- let s=document.createElement('div');
- s.className='star';
- s.style.left=Math.random()*100+'vw';
- s.style.top=Math.random()*100+'vh';
- s.style.animationDelay=Math.random()*2+'s';
- document.body.appendChild(s);
+// ==================== GLOBAL CONFIGURATION ====================
+const CONFIG = {
+STARS_COUNT: 120,
+HEART_INTERVAL: 250,
+HEART_DURATION: 8500,
+HEARTS_TIMEOUT: 60000,
+TOUCH_THRESHOLD: 50
+};
+
+// ==================== INITIALIZE BACKGROUND STARS ====================
+function createStars(){
+for(let i=0;i<CONFIG.STARS_COUNT;i++){
+let s=document.createElement('div');
+s.className='star';
+s.setAttribute('aria-hidden','true');
+s.style.left=Math.random()*100+'vw';
+s.style.top=Math.random()*100+'vh';
+s.style.animationDelay=Math.random()*2+'s';
+document.body.appendChild(s);
+}
 }
 
-// بيانات الكروت
+// ==================== CARDS DATA ====================
 const cards=[
 ["💖 البداية","أحيانًا أقف طويلًا أفكر... كيف استطاع شخص واحد أن يجعل الحياة أجمل بهذا الشكل؟ وكيف استطاعت ابتسامة واحدة أن تمنح الأيام نورًا مختلفًا وتجعل أبسط اللحظات تحمل قيمة لا توصف؟ منذ أن عرفتك وأنا أشعر أن هناك شيئًا جميلًا تغير بداخلي، وكأن الحياة قررت أن تهديني شخصًا يحمل كل المعاني الجميلة في قلب واحد."],
 ["✨ ابتسامتك","لا أظن أن هناك شيئًا أجمل من ابتسامتك. تلك الابتسامة التي تستطيع أن تغيّر مزاج يوم كامل في لحظة واحدة، وتجعل كل شيء يبدو أكثر إشراقًا. أحيانًا أتذكرها دون سبب فأبتسم تلقائيًا وكأنها تحمل معها سعادة لا تنتهي."],
@@ -183,11 +303,13 @@ const cards=[
 
 let current=0;
 
+// ==================== RENDER CARD CONTENT ====================
 function render(){
 document.getElementById('counter').innerHTML=(current+1)+' / '+cards.length;
 document.getElementById('title').innerHTML=cards[current][0];
 document.getElementById('text').innerHTML=cards[current][1];
 
+// Show signature on last card
 if(current===cards.length-1){
 document.getElementById('extra').innerHTML=`
 <div class="signature">
@@ -199,6 +321,7 @@ document.getElementById('extra').innerHTML='';
 }
 }
 
+// ==================== NAVIGATION ====================
 function nextCard(){
 if(current<cards.length-1){
 current++;
@@ -213,33 +336,38 @@ render();
 }
 }
 
+// ==================== OPEN LOVE PAGE ====================
 function openLove(){
 document.getElementById('intro').style.display='none';
 document.getElementById('main').style.display='flex';
 
-// تفجير القلوب بشكل مستمر
-let heartInterval=setInterval(()=>{
+// Flying hearts animation
+let heartInterval=setInterval(createFloatingHeart,CONFIG.HEART_INTERVAL);
+
+// Stop hearts after 1 minute
+setTimeout(()=>clearInterval(heartInterval),CONFIG.HEARTS_TIMEOUT);
+}
+
+// ==================== CREATE FLOATING HEART ====================
+function createFloatingHeart(){
 let h=document.createElement('div');
 h.className='heart';
 h.innerHTML='❤️';
+h.setAttribute('aria-hidden','true');
 h.style.left=Math.random()*100+'vw';
 h.style.animationDelay='0s';
 document.body.appendChild(h);
-setTimeout(()=>h.remove(),8500);
-},250);
-
-// إيقاف القلوب بعد دقيقة
-setTimeout(()=>clearInterval(heartInterval),60000);
+setTimeout(()=>h.remove(),CONFIG.HEART_DURATION);
 }
 
-// التحكم بلوحة المفاتيح
+// ==================== KEYBOARD CONTROLS ====================
 document.addEventListener('keydown',(e)=>{
 if(document.getElementById('intro').style.display!=='none')return;
 if(e.key==='ArrowRight')prevCard();
 if(e.key==='ArrowLeft')nextCard();
 });
 
-// التحكم باللمس
+// ==================== TOUCH CONTROLS ====================
 let touchStartX=0;
 document.addEventListener('touchstart',(e)=>{
 touchStartX=e.changedTouches[0].screenX;
@@ -248,11 +376,12 @@ touchStartX=e.changedTouches[0].screenX;
 document.addEventListener('touchend',(e)=>{
 if(document.getElementById('intro').style.display!=='none')return;
 let touchEndX=e.changedTouches[0].screenX;
-if(touchStartX-touchEndX>50)nextCard();
-if(touchEndX-touchStartX>50)prevCard();
+if(touchStartX-touchEndX>CONFIG.TOUCH_THRESHOLD)nextCard();
+if(touchEndX-touchStartX>CONFIG.TOUCH_THRESHOLD)prevCard();
 },false);
 
-// تحميل أول كارت
+// ==================== INITIALIZE ====================
+createStars();
 render();
 </script>
 </body>
